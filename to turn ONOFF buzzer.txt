@@ -1,0 +1,23 @@
+Python program to turn ON/OFF buzzer 
+
+import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library 
+from time import sleep # Import the sleep function from the time module 
+GPIO.setwarnings(False) # Ignore warning for now 
+GPIO.setmode(GPIO.BOARD) # Use physical pin numbering 
+Buzzer = 18 
+GPIO.setup(Buzzer, GPIO.OUT, initial=GPIO.LOW) 
+while True: # Run forever 
+ GPIO.output(Buzzer, True) # Turn ON 
+ sleep(1) # Sleep for 1 second 
+ GPIO.output(Buzzer, False) # Turn OFF 
+ sleep(1) # Sleep for 1 second
+
+
+Observations on Input and Output:*
+- *Input*: The input consists of commands to turn the buzzer on and off by setting the GPIO pin to high and low states.
+- *Output*: The output is the state changes of the buzzer, indicating whether it's on or off. Additionally, you may observe any audible sound produced by the buzzer when it's on.
+
+*Result and Conclusion:*
+- When the program is executed, the buzzer alternates between on and off states with a delay of 1 second between each change.
+- While the buzzer is on, you may observe it producing a buzzing sound (assuming it's connected correctly and powered).
+- This program demonstrates how to control a buzzer using a Raspberry Pi GPIO pin. It can be integrated into various projects that require auditory alerts or notifications.

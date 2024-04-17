@@ -1,0 +1,31 @@
+Blinking Led
+
+import RPi.GPIO as GPIO 
+import time GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BCM) 
+cnt = 0 
+Blink_Time = 1 # Change LED status every 1 second 
+RED_LED = 14 
+GPIO.setup(RED_LED, GPIO.OUT) 
+try: 
+ while True: 
+ if cnt == 0: 
+ GPIO.output(RED_LED, False) 
+ cnt = 1 
+ else: 
+ GPIO.output(RED_LED, True) 
+ cnt = 0 
+ time.sleep(Blink_Time) 
+except KeyboardInterrupt: 
+ # Clean up GPIO on keyboard interrupt 
+ GPIO.cleanup() 
+
+
+
+*Observations on Input and Output:*
+- Input: The input here is the command to turn on and off the LED by setting the GPIO pin to high and low states.
+- Output: The output is the LED itself, which blinks at intervals of 1 second.
+
+*Result and Conclusion:*
+- The LED blinks on and off at intervals of 1 second, demonstrating the basic functionality of the program.
+- This program can be extended and modified for more complex LED blinking patterns or integrated into larger projects.

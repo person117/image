@@ -1,0 +1,26 @@
+Python program to toggle two LED’s. 
+
+import RPi.GPIO as GPIO 
+from time import sleep 
+GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BOARD) 
+RED_LED = 14 
+GREEN_LED = 15 
+GPIO.setup(RED_LED, GPIO.OUT, initial=GPIO.LOW) 
+GPIO.setup(GREEN_LED, GPIO.OUT, initial=GPIO.LOW) 
+while True: 
+ GPIO.output(RED_LED, True) 
+ GPIO.output(GREEN_LED, False) 
+ sleep(1) 
+ GPIO.output(RED_LED, False) 
+ GPIO.output(GREEN_LED, True) 
+ sleep(1) 
+
+
+*Observations on Input and Output:*
+- Input: The input consists of the commands to toggle the states of the two LEDs.
+- Output: The output is the state changes of the two LEDs, alternating between on and off.
+
+*Result and Conclusion:*
+- Both LEDs alternate between on and off states with a delay of 1 second between each toggle.
+- This program demonstrates a simple way to control multiple LEDs simultaneously and alternate their states.
